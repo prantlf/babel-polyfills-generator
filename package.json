@@ -1,0 +1,78 @@
+{
+  "name": "babel-polyfills-generator",
+  "version": "0.0.1",
+  "description": "Generates a script with core-js and regenerator-runtime to be used with @babel/standalone.",
+  "author": {
+    "name": "Ferdinand Prantl",
+    "email": "prantlf@gmail.com",
+    "url": "http://prantl.tk"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/babel-polyfills-generator/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/prantlf/babel-polyfills-generator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prantlf/babel-polyfills-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/babel-polyfills-generator/issues"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "bin": {
+    "generate-babel-polyfills": "bin/generate-babel-polyfills"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint bin/generate-babel-polyfills",
+    "check": "BABEL_POLYFILLS_GENERATOR_TEST=true ./bin/generate-babel-polyfills dist",
+    "test": "npm run lint && npm run check"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.2",
+    "commander": "^8.3.0",
+    "rollup": "^2.62.0",
+    "terser": "^5.10.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "core-js": "^3.20.2",
+    "eslint": "^8.6.0",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "peerDependencies": {
+    "core-js": "^3.20.2",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "keywords": [
+    "babel-polyfills",
+    "generator",
+    "browser"
+  ]
+}
